@@ -58,6 +58,12 @@ int main(int argc, char** argv) {
 	startTimer();
 #endif
 
+    char I_MPI_FABRICS[]="I_MPI_FABRICS=shm:ofi";
+    char FI_PROVIDER[]="FI_PROVIDER=tcp";
+    char SLURM_MPI_TYPE[]="SLURM_MPI_TYPE=pmi2";
+    putenv(I_MPI_FABRICS);
+    putenv(FI_PROVIDER);
+    putenv(SLURM_MPI_TYPE);
     setup_mpi(&argc,&argv,&g_mpi);
     
 
